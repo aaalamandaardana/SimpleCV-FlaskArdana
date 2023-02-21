@@ -10,6 +10,10 @@ app = Flask(__name__)
 def index():
     foto = 'static/image/arda.jpeg'
     return render_template('index.html', foto=foto)
+
+@app.route("/test")
+def test():
+    return "<p>Testing new route endpoint</p>"
     
 
 # buat conditional run dengan kondisi dimana program akan berjalan jika yang di running adalah function main/utama
