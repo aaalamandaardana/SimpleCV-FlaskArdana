@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alamanda Ardana - Simple CV Flask</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+    <style>
+      /* Mobile (min-width=300px) */
+      * {
+        font-family: 'Mulish', sans-serif;
+      }
+      body {
+        background-color: #010100;
+      }
+      section {
+        max-width: 100%;
+        max-height: 100%;
+        margin-bottom: 4rem;
+      }
+      
+      h1 {
+        font-size: 2.4rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 0.6rem;
+      }
+      p {
+        font-size: 0.7rem;
+      }
+      h1, h2, article, p {
+        color: #FB9344;
+      }
+      h3 {
+        color: #965422;
+      }
+
+      img { 
+        /* Biar makin smooth pas ga hover */
+        transition: transform.2s;
+      }
+      img:hover {
+        transform: scale(1.05);
+        transition-duration: 0.3s;
+      }
+
+      /* Navbar */
+      .navbar {
+        height: fit-content;
+        background-color: #FB9344;
+        margin-bottom: 3.5rem;
+        width: 100%;
+      }
+      .navbar a {
+        font-size: 1.25rem;
+        margin: 1rem;
+        color: #010100;
+      }
+      .navbar a:hover {
+        color: #965422;
+      }
+      .navbar img {
+        height: 3rem;
+      }
+      .navbar button {
+        color: #FB9344;
+      }
+
+      /* Profile Section */
+      .mobile-profile img {
+        margin: 1.5rem 20%;
+        width: 60%;
+        border-radius: 30px;
+      }
+      .mobile-profile article {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 22px;
+      }
+      .mobile-profile h1, .mobile-profile article {
+        text-align: center;
+      }
+      .td-profile {
+        display: none;
+      }
+      
+      /* Portfolio Section */
+      #portfolio {
+        margin: auto 7%;
+        padding-bottom: 4rem;
+      }
+      #portfolio h1 {
+        text-align: center;
+      }
+      #portfolio h2 {
+        text-align: center;
+      }
+      .portofolio1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10%;
+      }
+      .portofolio1 img {
+        flex-basis: 45%;
+        margin-right: 10%;
+        width: 45%;
+      }
+      .portofolio1 h3 {
+        flex-basis: 50%;
+        text-align: left;
+      }
+      .portofolio2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10% auto;
+      }
+      .portofolio2 h3 {
+        flex-basis: 50%;
+        text-align: left;
+        margin-right: 5%;
+        margin-left: 5%;
+      }
+      .portofolio2 img {
+        flex-basis: 45%;
+        width: 45%;
+      }
+      
+
+      /* Contact Me Section */
+      #contact {
+        margin-bottom: 4rem;
+      }
+      #contact h1 {
+        text-align: center;
+      }
+      .card {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        background-color: #010100;
+      }
+      .card-body .col {
+        text-align: justify;
+      }
+      form {
+        width: 70%;
+        margin: auto 15%;
+      }
+      #contact input, #contact textarea {
+        border-color: #FB9344;
+        color: #FB9344;
+        background-color: #010100;
+      }
+      #contact label {
+        color: #FB9344
+      }
+      #contact button {
+        width: 100%;
+        background-color: #FB9344;
+        color: #010100;
+      }
+
+      /* Footer Section */
+      hr {
+        border: none;
+        height: 5px;
+        /* Set the hr color */
+        background-color: #FB9344; /* Modern Browsers */
+        margin-bottom: 2.5rem;
+      }
+      footer {
+        margin: auto 7.5%;
+      }
+      .social-media i {
+        font-size: 30px;
+        margin-bottom: 1.25rem;
+      }
+
+      /* -------------------------- */
+      /* Tablet (min-width = 768px) */
+      @media screen and (min-width: 768px) {
+        * {
+          max-width: 100%;
+        }
+        h1 {
+          font-size: 35px;
+        }
+        h2 {
+          font-size: 24px;
+        }
+        h3 {
+          font-size: 1.3rem;
+        }
+        p {
+          font-size: 0.8rem;
+        }
+        article i {
+          font-size: 20px;
+        }
+        section {
+          margin-bottom: 6rem;
+        }
+
+        /* Profile Section */
+        .mobile-profile {
+          display: none;
+        }
+        .td-profile {
+          display: flex;
+          flex-direction: row;
+          margin: 1.5rem 5%;
+          padding-bottom: 6rem;
+        }
+        .td-profile img {
+          margin-top: 6%;
+          width: 45%;
+          height: 10%;
+          border-radius: 30px;
+        }
+        .description-profile {
+          margin-right: 7%;
+        }
+        .td-profile h1 {
+          margin-top: 15%;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+          padding-bottom: 8.5rem;
+        }
+
+        /* Footer Section */
+        footer {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+      /* -------------------------- */
+      /* Desktop (min-width = 992px & 1600px) */
+      @media screen and (min-width: 992px) {
+        h1 {
+          font-size: 49px;
+        }
+        p {
+          font-size: 1rem;
+        }
+        article i {
+          font-size: 24px;
+        }
+        .navbar a {
+          font-size: 1.5rem;
+          margin: 1rem;
+        }
+
+        /* Profile Section */
+        .td-profile h1 {
+          margin-top: 20%;
+        }
+      }
+
+      @media screen and (min-width: 1600px) {
+        h1 {
+          font-size: 72px;
+        }
+        h2 {
+          font-size: 32px;
+        }
+        h3 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1.1rem;
+        }
+        article i {
+          font-size: 28px;
+        }
+        section {
+          margin-bottom: 8rem;
+        }
+
+        /* Profile Section */
+        .td-profile h1 {
+          margin-top: 25%;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+          padding-bottom: 13rem;
+        }
+        .portofolio1 h3 {
+          flex-basis: 65%;
+          text-align: left;
+        }
+        .portofolio2 h3 {
+          flex-basis: 65%;
+          text-align: left;
+          margin-right: 5%;
+          margin-left: 5%;
+        }
+        .portofolio1 img {
+          flex-basis: 35%;
+          width: 35%;
+        }
+        .portofolio2 img {
+          flex-basis: 35%;
+          width: 35%;
+        }
+      }
+    </style>
+</head>
+
+<body>
+    <main>
+
+      <!-- Navbar  -->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#profile"><img src="{{ url_for('static',filename='images/lingkaran.png')}}"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#portfolio">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Me</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Profile Section  -->
+      <section id="profile" class="mobile-profile">
+        <h1>Alamanda <br> Ardana</h1>
+        <img src="{{ url_for('static',filename='images/arda.jpeg')}}">
+        <article>
+          <i>"I am a 20-year-old who is passionate about software development, data analysis and policy analysis"</i>
+        </article>
+      </section>
+
+      <section id="profile" class="td-profile">
+        <div class="description-profile">
+          <h1>Alamanda Ardana</h1>
+          <article>
+            <i>"I am a 20-year-old who is passionate about software development, data analysis and policy analysis"</i>
+          </article>
+        </div>
+        <img src="{{ url_for('static',filename='images/arda.jpeg')}}">
+      </section>
+
+      <!-- Portfolio Section  -->
+      <section id="portfolio">
+        <h1>Portfolio</h1>
+        <h2>(Software Development)</h2>
+        <div class="content">
+          <div class="portofolio1">
+              <a target="_blank" href="https://mymusholla.000webhostapp.com/"><img style="background-color: #965422; padding: 1rem;" src="{{ url_for('static',filename='images/MyMusholla.png')}}"></a>
+              <h3>MyMusholla, website yang dapat membantu petugas Musholla dalam mengelola Musholla. Web ini dibuat dengan suatu template web, kumpulan kode PHP, dan database MySQL.</h3>
+          </div>
+
+          <div class="portofolio2">
+              <h3>One Mart merupakan contoh website e-commerce. Website ini dibuat dengan React JS dan mengambil data API.</h3>
+              <a href="https://one-mart.netlify.app/"><img style="background-color: #965422; border-radius: 30px;" src="{{ url_for('static',filename='images/One-Mart.png')}}"></a>
+          </div>
+
+          <div class="portofolio1">
+            <a href="https://grup4ppl-siloker.netlify.app/"><img style="background-color: #965422; padding: 1rem;" src="{{ url_for('static',filename='images/SILOKER.png')}}"></a>
+            <h3>SILOKER adalah website penyedia informasi seputar dunia pekerjaan. Website ini dibuat dengan HTML, CSS, dan framework Bootstrap.</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Me Section  -->
+      <section id="contact">
+        <h1>Contact Me</h1>
+        <form>
+          <div class="card">
+            <div class="card-body">
+              <!-- Kolom Your Name -->
+              <div class="form-floating mb-3">
+                <input class="form-control" name="inputName" type="text" placeholder="Your Name" required/>
+                <label for="inputName">Your Name</label>
+              </div>
+
+              <!-- Kolom Title of Message -->
+              <div class="form-floating mb-3">
+                <input class="form-control" name="inputTitle" type="text" placeholder="Title of Message" required/>
+                <label for="inputTitle">Title of Message</label>
+              </div>
+
+              <!-- Kolom Description of Message -->
+              <div class="form-floating mb-5">
+                <textarea class="form-control" name="inputDescription" placeholder="Input the Description of  Message" cols="40" rows="5" style="height: 170px"></textarea>
+                <label for="inputDescription">Description of Message</i></label>
+              </div>
+
+              <!-- Button Submit -->
+              <button name="submit" type="submit" class="btn btn-dark btn-block">Submit</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <hr>
+      
+      <!-- Footer Section  -->
+      <footer>
+        <p>&copy; 2023. Alamanda Ardana - All Rights Reserved</p>
+        <div class="social-media">
+          <a href="https://www.linkedin.com/in/alamandaardana/" target="_blank"><i class='bx bxl-linkedin-square' style='color:#fb9344'></i></a>
+          <a href="https://github.com/aaalamandaardana" target="_blank"><i class='bx bxl-github' style='color:#fb9344'></i></a>
+          <a href="https://www.instagram.com/alamandaardana/" target="_blank"><i class='bx bxl-instagram' style='color:#fb9344'></i></a>
+          <a href="https://www.facebook.com/alamanda.ardhana/" target="_blank"><i class='bx bxl-facebook-circle' style='color:#fb9344'></i></a>
+        </div>
+      </footer>
+    </main>    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+</html>
